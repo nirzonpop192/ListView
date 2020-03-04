@@ -19,6 +19,7 @@ public class CountryAdpater extends BaseAdapter {
     private Context context;
 
 
+    private  int counter=0;
     private List<String> countryList;
 
     // private View view;
@@ -54,16 +55,17 @@ public class CountryAdpater extends BaseAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.list_row_country, parent, false);
 
-           this.viewHolder = ViewHolder.getmInstance(convertView);
-//            this.viewHolder = new ViewHolder(convertView);
+      //     this.viewHolder = ViewHolder.getmInstance(convertView);
+            this.viewHolder = new ViewHolder(convertView);
             Log.e("List", "getView Called " + (position + 1));
         }
 
 
-        String countryName = getItem(position);
+        String countryName = getItem(counter);
 
         viewHolder.tvCountry.setText(countryName);
-        viewHolder.tvIndex.setText(String.valueOf(position + 1));
+        viewHolder.tvIndex.setText(String.valueOf(counter + 1));
+        ++counter;
 
         return convertView;
     }
@@ -90,7 +92,7 @@ class ViewHolder {
         return mInstance;
     }
 
-    private ViewHolder(View v) {
+    public ViewHolder(View v) {
         tvCountry = v.findViewById(R.id.lr_tv_country);
         tvIndex = v.findViewById(R.id.lr_tv_index);
         Log.e("List", "view Holder create");

@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         country = new ArrayList<>();
 
-        for (int i = 0; i < 2000; i++) {
+        for (int i = 0; i < 2; i++) {
             country.add("Bangladesh");
             country.add("India");
             country.add("Paksthan");
@@ -31,6 +31,11 @@ public class MainActivity extends AppCompatActivity {
             country.add("Usa");
             country.add("UK");
             country.add("Afganishthan");
+            country.add("Uganda");
+            country.add("Canda");
+            country.add("Austilia");
+            country.add("Egept");
+            country.add("China");
         }
         lv = (ListView) findViewById(R.id.lv);
 
