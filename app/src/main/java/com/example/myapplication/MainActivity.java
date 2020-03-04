@@ -20,19 +20,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        country= new ArrayList<>();
+        country = new ArrayList<>();
 
-        country.add("Bangladesh");
-        country.add("India");
-        country.add("Paksthan");
-        country.add("Napel");
-        country.add("Srilanka");
-        country.add("Usa");
-        country.add("UK");
-        country.add("Afganishthan");
-        lv=(ListView) findViewById(R.id.lv);
+        for (int i = 0; i < 2000; i++) {
+            country.add("Bangladesh");
+            country.add("India");
+            country.add("Paksthan");
+            country.add("Napel");
+            country.add("Srilanka");
+            country.add("Usa");
+            country.add("UK");
+            country.add("Afganishthan");
+        }
+        lv = (ListView) findViewById(R.id.lv);
 
-        CountryAdpater adpater= new CountryAdpater(this,country);
+        CountryAdpater adpater = new CountryAdpater(this, country);
 
         lv.setAdapter(adpater);
 

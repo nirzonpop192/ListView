@@ -2,9 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
     <TextView
+        android:padding="10dp"
+        android:id="@+id/lr_tv_index"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:text="TextView"
+        android:textSize="20sp" />
+    <TextView
+        android:padding="10dp"
         android:id="@+id/lr_tv_country"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

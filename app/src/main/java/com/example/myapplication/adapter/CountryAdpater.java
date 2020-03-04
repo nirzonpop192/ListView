@@ -16,12 +16,16 @@ import java.util.List;
 public class CountryAdpater extends BaseAdapter {
 
 
-    Context context;
-
-    List<String> countryList ;
+    private Context context;
 
 
-    public CountryAdpater(Context context,List<String> countryList) {
+    private List<String> countryList;
+
+    // private View view;
+    private ViewHolder viewHolder;
+
+
+    public CountryAdpater(Context context, List<String> countryList) {
         this.context = context;
         this.countryList = countryList;
 
@@ -45,13 +49,50 @@ public class CountryAdpater extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View view = LayoutInflater.from(context).inflate(R.layout.list_row_country, parent, false);
-        TextView tvCountry = view.findViewById(R.id.lr_tv_country);
+
+
+        if (convertView == null) {
+            convertView = LayoutInflater.from(context).inflate(R.layout.list_row_country, parent, false);
+
+           this.viewHolder = ViewHolder.getmInstance(convertView);
+//            this.viewHolder = new ViewHolder(convertView);
+            Log.e("List", "getView Called " + (position + 1));
+        }
+
 
         String countryName = getItem(position);
 
-        tvCountry.setText(countryName);
-        Log.w("List","getView Called"+(position+1));
-        return view;
+        viewHolder.tvCountry.setText(countryName);
+        viewHolder.tvIndex.setText(String.valueOf(position + 1));
+
+        return convertView;
+    }
+
+
+}
+
+class ViewHolder {
+    TextView tvCountry;
+    TextView tvIndex;
+
+    private static ViewHolder mInstance;
+
+    private ViewHolder() {
+    }
+
+    public static ViewHolder getmInstance(View view) {
+        if (mInstance == null) {
+            mInstance = new ViewHolder(view);
+
+
+        }
+
+        return mInstance;
+    }
+
+    private ViewHolder(View v) {
+        tvCountry = v.findViewById(R.id.lr_tv_country);
+        tvIndex = v.findViewById(R.id.lr_tv_index);
+        Log.e("List", "view Holder create");
     }
 }
